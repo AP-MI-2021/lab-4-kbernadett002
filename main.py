@@ -86,6 +86,28 @@ def test_suma_cifrelor_mai_mari_decat_n():
     assert suma_cifrelor_mai_mari_decat_n([1, 2, 3, 4], 5) == []
     assert suma_cifrelor_mai_mari_decat_n([1, 2, 3, 4, 40], 4) == [4,40]
 
+
+def lista_cu_patrate_perfecte(l):
+    '''
+    Afișarea listei obținute din lista inițială în care numerele pătrat perfect sunt înlocuite cu
+    radicalul acestora. În cazul numerelor care nu sunt pătrat perfect, acestea sunt înlocuite cu o listă
+    cu numerele pătrat perfect mai mici decât numărul inițial.
+    :param l:o lista de numere intregi
+    :return:lista obținuta din l inițială în care numerele pătrat perfect sunt înlocuite cu
+    radicalul acestora
+    '''
+    rezultat=[]
+    k=0
+    for x in l:
+        if x>0:
+            radical = x ** 0.5
+            if radical * radical == x:
+                rezultat.append(int(radical))
+        else:
+            rezultat.append(x)
+    return rezultat
+
+
 def main():
     test_suma_mic_mare()
     test_concatenare_nr_pozitive()
@@ -114,6 +136,8 @@ def main():
         elif optiune=="4":
             n=int(input("Dati un nr:"))
             print(suma_cifrelor_mai_mari_decat_n(l,n))
+        elif optiune=="5":
+            print(lista_cu_patrate_perfecte(l))
         elif optiune=="a":
             print(l)
         elif optiune=="x":
